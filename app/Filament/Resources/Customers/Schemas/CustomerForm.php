@@ -13,7 +13,7 @@ class CustomerForm
     {
         return $schema
             ->components([
-                // Section::make() // If you change this to a section, it also doesn't work
+                // Section::make() // Changing this to a section will cause the 'customerGroup' key to get dropped from the nest field's keys
                 Group::make()
                     ->relationship('customerGroup')
                     ->schema([
@@ -21,7 +21,7 @@ class CustomerForm
                                 ->label('Single Nested Field')
                                 ->required(),
                             Section::make()
-                                // ->key('customerOrg') // If you add a key, this works
+                                // ->key('customerOrg') // Adding a key will add the key to the `double_nested_field` field's key inheritance path
                                 ->relationship('customerOrg')
                                 ->schema([
                                     TextInput::make('double_nested_field')
