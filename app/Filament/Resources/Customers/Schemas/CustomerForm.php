@@ -13,6 +13,7 @@ class CustomerForm
     {
         return $schema
             ->components([
+                // Section::make() // If you change this to a section, it also doesn't work
                 Group::make()
                     ->relationship('customerGroup')
                     ->schema([
